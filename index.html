@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caleb's Professional Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for dark theme and typography - Material Design aesthetic */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* True Material Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+        
+        /* Persistent Header Styling */
+        .header-bg {
+            background-color: #1e1e1e; /* Elevated surface for MD */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Stronger MD Shadow for sticky header */
+        }
+        
+        /* --- HIGH-CONTRAST CYAN ACCENT COLORS --- */
+        .accent-color {
+            color: #4DD0E1; /* Bright Cyan 300 for text and highlights */
+        }
+        .accent-bg {
+            background-color: #00BCD4; /* Cyan 500 for solid buttons */
+        }
+        .accent-border {
+            border-color: #00838F; /* Darker Cyan for lines/dividers */
+        }
+        /* --- END CYAN ACCENTS --- */
+
+        /* Card Styling - Material Design Elevation */
+        .md-card {
+            background-color: #2c2c2c; /* Slightly lighter than header/body */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .md-card:hover {
+            /* Accent glow on hover using the bright Cyan */
+            box-shadow: 0 0 15px rgba(77, 208, 225, 0.6); 
+            transform: translateY(-2px);
+        }
+
+        /* Material Tab Styling (Applied to both global and internal nav) */
+        .material-tab-bar {
+            border-bottom: 2px solid #3d3d3d;
+        }
+        .material-tab {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s, background-color 0.3s;
+            position: relative;
+            text-align: center;
+        }
+        .material-tab.active {
+            color: #4DD0E1; /* Bright Cyan Accent color */
+        }
+        /* Indicator bar for active tab */
+        .material-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #4DD0E1;
+            border-radius: 2px 2px 0 0;
+        }
+        .material-tab:not(.active):hover {
+            background-color: rgba(77, 208, 225, 0.1); /* Light hover effect */
+        }
+        
+        /* Responsive scrollable tabs on small screens */
+        @media (max-width: 768px) {
+            .material-tab-bar {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: start;
+            }
+            .material-tab {
+                flex-shrink: 0;
+            }
+        }
+
+        /* Professional Journey Timeline Styling */
+        .timeline-container {
+            position: relative;
+            padding-left: 3rem; 
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #3d3d3d; 
+        }
+        
+        /* Modal (Lightbox) Styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 100; /* Sit on top */
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 700px;
+            object-fit: contain; /* Ensure image fits while maintaining aspect ratio */
+            box-shadow: 0 0 20px rgba(77, 208, 225, 0.8);
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #4DD0E1;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- 1. PERSISTENT HEADER: Name, Contacts, and Main Navigation Tabs (Sticky) -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            
+            <!-- Name and Contact Info Block -->
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-4 mb-4">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">CALEB OKONU MAERA</h1>
+                    <p class="text-lg sm:text-xl accent-color">Impactful Information Technology Professional</p>
+                </div>
+                <!-- Contact Info (Clickable) -->
+                <div class="text-center md:text-right space-y-1 text-gray-400 text-sm">
+                    <p>
+                        <i class="fas fa-phone mr-2 text-cyan-400"></i> 
+                        <a href="tel:+254794812015" class="hover:text-white transition duration-200 font-medium">
+                            +254 (0) 794812015
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-2 text-cyan-400"></i> 
+                        <a href="mailto:thallyace@gmail.com" class="hover:text-white transition duration-200 font-medium">
+                            thallyace@gmail.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Navigation Tabs (Positioned directly below contacts) -->
+            <div class="material-tab-bar flex flex-nowrap md:flex-wrap overflow-x-auto justify-start md:justify-center -mb-4">
+                <button id="nav-home" data-page="home" onclick="showPage('home')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">Home</button>
+                <button id="nav-cv_journey" data-page="cv_journey" onclick="showPage('cv_journey')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">CV / Journey</button>
+                <button id="nav-about_me" data-page="about_me" onclick="showPage('about_me')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">About Me</button>
+                <button id="nav-portfolio" data-page="portfolio" onclick="showPage('portfolio')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">Portfolio</button>
+                <button id="nav-contact_me" data-page="contact_me" onclick="showPage('contact_me')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">Contact Me</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+        <!-- Home Page -->
+        <div id="home" class="page-content space-y-12">
+            <header class="text-center py-16 md-card border border-gray-800">
+                <!-- Responsive text sizing applied -->
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+                    <span class="accent-color block">Mastering Technology,</span>
+                    Driving <span class="text-white">Business Impact.</span>
+                </h2>
+                <p class="mt-4 text-xl text-gray-400">
+                    Highly adept ICT Professional focused on strategic planning, robust system management, and full-stack technical delivery.
+                </p>
+                <div class="mt-8">
+                    <button onclick="showPage('cv_journey')" class="accent-bg hover:opacity-90 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
+                        Explore My Journey <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </header>
+
+            <section class="space-y-6">
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 mb-6 accent-color">Technical Focus Areas</h3>
+                <!-- UPDATED GRID: From md:grid-cols-3 to lg:grid-cols-4 for 4 cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Home Image Cards -->
+                    <div class="md-card p-4">
+                        <img src="https://placehold.co/800x450/374151/ffffff?text=Network+Infrastructure" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Network';" alt="Network Infrastructure" class="rounded-lg w-full h-auto object-cover">
+                        <p class="mt-3 text-center text-gray-300 font-semibold">System Analysis & Networking</p>
+                    </div>
+                    <div class="md-card p-4">
+                        <img src="https://placehold.co/800x450/374151/ffffff?text=Web+Design+and+E-Commerce" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Web+Dev';" alt="Web Design and E-Commerce" class="rounded-lg w-full h-auto object-cover">
+                        <p class="mt-3 text-center text-gray-300 font-semibold">E-Commerce & Digital Presence</p>
+                    </div>
+                    <div class="md-card p-4">
+                        <img src="https://placehold.co/800x450/374151/ffffff?text=Data+and+Security+Management" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Security';" alt="Data and Security Management" class="rounded-lg w-full h-auto object-cover">
+                        <p class="mt-3 text-center text-gray-300 font-semibold">Data, Backup & Security</p>
+                    </div>
+                    <!-- NEW CARD: Hardware Diagnostics -->
+                    <div class="md-card p-4">
+                        <img src="https://placehold.co/800x450/374151/ffffff?text=Hardware+Diagnostics" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Hardware';" alt="Hardware Diagnostics and Repair" class="rounded-lg w-full h-auto object-cover">
+                        <p class="mt-3 text-center text-gray-300 font-semibold">Advanced Hardware Diagnostics & Repair</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CV / Professional Journey Page -->
+        <div id="cv_journey" class="page-content hidden space-y-8">
+            
+            <!-- INTERNAL TABS (Material Design Tabs for CV Sections - Positioned below main header) -->
+            <div class="material-tab-bar flex overflow-x-auto space-x-1 mb-4 md-card p-1 bg-black/30 rounded-lg">
+                <button data-tab="summary" onclick="showCVSection('summary', this)" class="material-tab active text-sm sm:text-base whitespace-nowrap flex-grow text-center">Summary</button>
+                <button data-tab="competencies" onclick="showCVSection('competencies', this)" class="material-tab text-gray-400 text-sm sm:text-base whitespace-nowrap flex-grow text-center">Competencies</button>
+                <button data-tab="journey" onclick="showCVSection('journey', this)" class="material-tab text-gray-400 text-sm sm:text-base whitespace-nowrap flex-grow text-center">Professional Journey</button>
+                <button data-tab="declaration" onclick="showCVSection('declaration', this)" class="material-tab text-gray-400 text-sm sm:text-base whitespace-nowrap flex-grow text-center">Commitment</button>
+            </div>
+
+
+            <!-- CV CONTENT SECTIONS (Tab Content) -->
+
+            <!-- Section 1: Professional Summary -->
+            <section id="cv_section_summary" class="cv-section space-y-4">
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Professional Summary</h3>
+                <p class="text-gray-300 leading-relaxed md-card p-6">
+                    A visionary and resilient <strong>Information Technology professional</strong>, adept at leveraging advanced technology to <strong>expedite business operations</strong> and bypass technical obstacles. Well-trained in delivering technology solutions that address complex business challenges, with an excellent track record of providing wide-ranging, high-quality IT services. Proficient in <strong>analyzing information system needs</strong>, evaluating end-user requirements, custom designing solutions, and <strong>troubleshooting complex information systems</strong>. My ultimate goal is to become a valuable mutual asset by providing efficient, strategic information technology expertise, contributing effectively and tangibly to organizational success.
+                </p>
+            </section>
+
+            <!-- Section 2: Core Competencies -->
+            <section id="cv_section_competencies" class="cv-section hidden space-y-6">
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Core Competencies</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Competency 1: Web/E-commerce -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-shopping-cart text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">E-Commerce & Web Platform Mastery</h4>
+                        </div>
+                        <p class="text-gray-400 text-sm">Expertise in managing and optimizing platforms like <strong><i>WooCommerce</i></strong> and <strong><i>Shopify</i></strong>, encompassing <strong><i>SEO</i></strong>, <strong><i>Google Ads</i></strong>, domain administration, and full site backup/restoration.</p>
+                    </div>
+                    
+                    <!-- Competency 2: Infrastructure/Networking -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-network-wired text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">Infrastructure & Systems Management</h4>
+                            
+                        </div>
+                        <p class="text-gray-400 text-sm">Highly competent in managing and maintaining <strong><i>Servers</i></strong>, <strong><i>PCs</i></strong>, <strong><i>Routers</i></strong>, and <strong><i>Switches</i></strong>, including configuring <strong><i>DHCP</i></strong>, operating in <strong><i>Microsoft</i></strong> and <strong><i>Linux</i></strong> environments.</p>
+                    </div>
+
+                    <!-- Competency 3: Hardware & Diagnostics -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-microchip text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">Advanced Hardware Lifecycle Support</h4>
+                        </div>
+                        <p class="text-gray-400 text-sm">Proficiency in on-site and remote <strong><i>hardware diagnostics</i></strong>, component replacement, <strong><i>motherboard</i></strong>/circuit examination, and <strong><i>BIOS</i></strong> updates for optimal performance.</p>
+                    </div>
+
+                    <!-- Competency 4: Data & Security -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-database text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">Data Integrity & Cyber Resilience</h4>
+                        </div>
+                        <p class="text-gray-400 text-sm">Expertise in <strong><i>Backup Management</i></strong>, Disaster <strong><i>Recovery</i></strong>, <strong><i>Database Design</i></strong> (SQL), system security screening, and monitoring network activity for <strong><i>cyber threat</i></strong> prevention.</p>
+                    </div>
+
+                    <!-- Competency 5: Development & Analysis -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-code text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">Systems Analysis & Quality Assurance</h4>
+                        </div>
+                        <p class="text-gray-400 text-sm">Proficient in <strong><i>System Analysis</i></strong>, end-user requirement evaluation, and the full <strong><i>software development cycle</i></strong>. Broad knowledge of <strong><i>Apache</i></strong> and <strong><i>Linux</i></strong> development environments.</p>
+                    </div>
+
+                    <!-- Competency 6: Training & Strategy -->
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-cogs text-xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold accent-color">Strategic Planning & Training Delivery</h4>
+                        </div>
+                        <p class="text-gray-400 text-sm">Ability to drive organizational change through <strong><i>strategic technology planning</i></strong>, combined with excellence in technical training and comprehensive <strong><i>user documentation</i></strong>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Professional Journey (Timeline) -->
+            <section id="cv_section_journey" class="cv-section hidden space-y-6">
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Professional Journey</h3>
+                <div class="timeline-container space-y-10 pt-4">
+                    
+                    <!-- Job 1: Computer Shop Manager -->
+                    <div class="relative pl-12">
+                        <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
+                        <div class="md-card p-6">
+                            <h4 class="text-2xl font-bold accent-color">Computer Shop Manager</h4>
+                            <p class="text-lg font-semibold text-gray-300">Lanso Tech Solutions | April 2025 – September 2025</p>
+                            <p class="mt-4 text-gray-400">Spearheaded operational efficiency and technical service delivery:</p>
+                            <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
+                                <li><b>Digital Asset Administration:</b> Administered the company's website, managing product catalogs, authoring technical blogs, rectifying <strong>SEO</strong> issues, and initiating backup/restoration across various platforms.</li>
+                                <li><b>Complex Diagnostics & Upgrades:</b> Carried out both on-site and remote hardware diagnostics, upgrades, and repair for clients, encompassing <strong>BIOS updates</strong>, <strong>motherboard examination</strong>, and <strong>component replacement</strong>.</li>
+                                <li><b>Sales and Inventory Management:</b> Oversaw and accounted for all sales transactions, ensuring that new inventory was accurately recorded within the <strong>POS system</strong>, generated monthly sales reports, and provided recommendations for future market forecasts.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Job 2: ICT Trainer Intern -->
+                    <div class="relative pl-12">
+                        <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
+                        <div class="md-card p-6">
+                            <h4 class="text-2xl font-bold accent-color">ICT Trainer Intern</h4>
+                            <p class="text-lg font-semibold text-gray-300">The Kabete National Polytechnic | September 2024 – December 2024</p>
+                            <p class="mt-4 text-gray-400">Delivered quality education and maintained academic standards:</p>
+                            <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
+                                <li><b>Curriculum Development:</b> Developed necessary and accurate content for teaching in various <strong>ICT subject areas</strong>, ensuring strict adherence to the required syllabus and course specifications.</li>
+                                <li><b>Instructional Delivery:</b> Provided quality, efficient teaching, and guidance in <strong>technical practical exercises</strong>, consistently encouraging student learning and technical skill development.</li>
+                                <li><b>Assessment and Compliance:</b> Ensured all marking, student assessments, and moderation were complete and accurate, maintaining records of student achievements as required by sector bodies.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Job 3: ICT Technician -->
+                    <div class="relative pl-12">
+                        <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
+                        <div class="md-card p-6">
+                            <h4 class="text-2xl font-bold accent-color">ICT Technician</h4>
+                            <p class="text-lg font-semibold text-gray-300">Ace Software Solutions | January 2020 – January 2023</p>
+                            <p class="mt-4 text-gray-400">Executed critical system maintenance and resolved complex infrastructure challenges:</p>
+                            <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
+                                <li><b>Tier 1 and 2 Technical Mastery:</b> Delivered efficient technical support to users, resolving complex technical problems with computers, <strong>servers</strong>, and <strong>network infrastructure</strong>, including critical configuration errors.</li>
+                                <li><b>System Security and Compliance:</b> Kept IT systems operational and updated, ensuring patches and <strong>backups</strong> were done regularly. Monitored network and system security, and responded effectively to security alerts and incidents.</li>
+                                <li><b>Asset and Installation Management:</b> Managed inventory and maintained accurate records of <strong>IT assets</strong>, including software license management. Installed and configured IT systems for customers, ensuring proper functionality and integration.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Job 4: Cyber Cafe Attendant -->
+                    <div class="relative pl-12">
+                        <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
+                        <div class="md-card p-6">
+                            <h4 class="text-2xl font-bold accent-color">Cyber Cafe Attendant</h4>
+                            <p class="text-lg font-semibold text-gray-300">Seniors Cyber | September 2018 – August 2019</p>
+                            <p class="mt-4 text-gray-400">Maintained high standards of customer service and technical functionality:</p>
+                            <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
+                                <li><b>Service and Support:</b> Provided efficient customer support, including printing and basic editing assistance. Resolved technical issues with computers, printers, and network connections promptly.</li>
+                                <li><b>Transaction Integrity:</b> Managed customer payments and maintained accurate transaction records, including charges for printing and editing services.</li>
+                                <li><b>Operational Security:</b> Monitored computer and network activity to ensure security, preventing unauthorized printing or editing, and maintained an organized and functional workspace.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Job 5: Attaché Roles -->
+                    <div class="relative pl-12">
+                        <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
+                        <div class="md-card p-6">
+                            <h4 class="text-2xl font-bold accent-color">ICT Attaché (Dual Experience)</h4>
+                            <p class="text-lg font-semibold text-gray-300">Nyamira Tea Farmers Sacco Society & Kisii University</p>
+                            <p class="mt-4 text-gray-400">Gained diverse exposure in financial and academic IT environments (Jan 2017 – Apr 2017 / Sep 2015 – Dec 2015):</p>
+                            <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
+                                <li><b>Sacco Systems Support:</b> Assisted in the maintenance and support of Sacco-specific software (member management, loan processing) and supported the implementation and management of <strong>digital banking</strong> and mobile money services.</li>
+                                <li><b>University Infrastructure:</b> Installed and configured computer software for faculty/students, assisted in the maintenance and troubleshooting of the university's <strong>IT infrastructure</strong>, and performed routine system maintenance tasks.</li>
+                                <li><b>Development & Security:</b> Contributed to computer <strong>security initiatives</strong> (updates and vulnerability assessments) and participated in debugging and program correction for university-developed software applications.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Voluntary Roles & Declaration of Commitment -->
+            <section id="cv_section_declaration" class="cv-section hidden space-y-8">
+                 <!-- Voluntary Roles -->
+                <div class="space-y-4">
+                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Voluntary Professional Roles</h3>
+                    <div class="md-card p-6 space-y-3">
+                        <p class="text-gray-300"><i class="fas fa-search-dollar mr-3 accent-color"></i> <b>On Demand SEO, Web Design & Hosting:</b> Utilizing advanced techniques to enhance online visibility and deliver robust web solutions.</p>
+                        <p class="text-gray-300"><i class="fas fa-server mr-3 accent-color"></i> <b>On Demand DevOps Engineer (with Linux expertise):</b> Applying deployment best practices and leveraging <strong>Linux</strong> to optimize development and operational processes.</p>
+                    </div>
+                </div>
+
+                <!-- Declaration of Commitment -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 text-red-400">Declaration of Commitment</h3>
+                    <div class="bg-gray-900 md-card p-8 border-2 border-red-500 shadow-xl">
+                        <p class="text-gray-200 text-xl font-medium leading-relaxed italic">
+                            "I am not seeking a role for mere participation, but for decisive impact. My commitment to any organization is underpinned by a relentless drive to deliver tangible, bottom-line results through <strong>resilient IT infrastructure</strong>, optimized processes, and strategic technology adoption. I guarantee technical mastery, proactive problem resolution, and a dedicated focus on transforming challenges into high-value operational successes. My expertise is an investment in stability and growth."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- About Me Page -->
+        <div id="about_me" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">About Caleb Okonu Maera</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                
+                <div class="lg:col-span-1 md-card p-6 flex flex-col items-center">
+                    <div class="w-full max-w-xs h-auto overflow-hidden rounded-xl border-4 accent-border" style="border-color: #4DD0E1; box-shadow: 0 0 15px rgba(77, 208, 225, 0.6);">
+                        <img src="https://placehold.co/400x500/374151/ffffff?text=Professional+Portrait" onerror="this.onerror=null; this.src='https://placehold.co/400x500/374151/ffffff?text=Portrait';" alt="Placeholder professional image" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="mt-4 text-2xl font-bold text-white">My Philosophy</h4>
+                    <p class="text-gray-400 text-center mt-2">Technology is the leverage point for business efficiency and strategic advantage.</p>
+                </div>
+
+                <div class="lg:col-span-2 space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4">
+                        I am a highly motivated and skilled <strong>ICT Professional</strong> with a robust background spanning system analysis, network management, hardware diagnostics, and e-commerce development. My career journey is characterized by successfully navigating complex technological landscapes to deliver resilient and effective business solutions. I thrive on overcoming technological obstacles—from troubleshooting deep-level server configuration errors to administering high-traffic <strong>WooCommerce</strong> sites.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4">
+                        My education, culminating in a <strong>Diploma in Technical Trainer Education ICT</strong>, equips me not only with deep technical knowledge but also with the crucial ability to <strong>communicate technical information clearly</strong> to non-technical professionals and train future talent effectively. This dual capability ensures seamless project integration and maximum team utilization.
+                    </p>
+                    <div class="md-card p-6 shadow-inner border-l-4 accent-border" style="border-left-color: #4DD0E1;">
+                        <h4 class="text-xl font-semibold accent-color mb-3">Key Differentiators</h4>
+                        <ul class="list-disc ml-5 text-gray-400 space-y-2">
+                            <li>Proven ability to bridge the gap between technical requirements and organizational goals.</li>
+                            <li>Extensive hands-on experience across both <strong>Microsoft</strong> and <strong>Linux</strong> operating systems and environments.</li>
+                            <li>Commitment to <strong>Quality Assurance</strong> and continuous process improvement in IT service delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Page -->
+        <div id="portfolio" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Project Portfolio</h2>
+            
+            <p class="text-lg text-gray-300">A showcase of systems, web designs, and technical infrastructure projects. Click on any image to expand and view details.</p>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project 1: E-commerce Site Admin -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+1+Detail', 'E-commerce Administration & SEO')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=E-commerce+SEO" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=E-commerce';" alt="E-commerce SEO Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">E-commerce Site Optimization</h3>
+                        <p class="text-gray-400 text-sm">WooCommerce/Shopify administration and comprehensive SEO fixes.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Network Deployment -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+2+Detail', 'Enterprise Network Deployment')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=Network+Deployment" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Network';" alt="Network Deployment Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">Network Infrastructure Build</h3>
+                        <p class="text-gray-400 text-sm">Design, deployment, and configuration of robust small-to-medium enterprise networks.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Data Migration -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+3+Detail', 'SQL Database Migration')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=SQL+Migration" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Database';" alt="SQL Database Migration Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">SQL Database & Backup System</h3>
+                        <p class="text-gray-400 text-sm">Implementation of secure, efficient database backup and recovery protocols.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4: Hardware Repair -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+4+Detail', 'Hardware Diagnostics')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=Hardware+Repair" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Hardware';" alt="Hardware Repair Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">Advanced Hardware Diagnostics</h3>
+                        <p class="text-gray-400 text-sm">Case studies in motherboard repair, component sourcing, and BIOS updates.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5: Training Content -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+5+Detail', 'Technical Training Module')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=Training+Module" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Training';" alt="Training Module Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">Technical Training Modules</h3>
+                        <p class="text-gray-400 text-sm">Samples of developed curriculum content and user documentation for ICT training.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Security Audit -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+6+Detail', 'System Security Audit')">
+                    <img src="https://placehold.co/600x400/374151/ffffff?text=Security+Audit" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Security';" alt="Security Audit Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold accent-color">System Security & Patch Management</h3>
+                        <p class="text-gray-400 text-sm">Protocol documentation for regular system patching, backups, and security incident response.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- The Modal/Lightbox -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content rounded-lg" id="modalImage">
+            <div id="caption" class="text-gray-300 text-center p-4 mt-4"></div>
+        </div>
+
+        <!-- Contact Me Page -->
+        <div id="contact_me" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Get in Touch</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Contact Card 1: Email -->
+                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center">
+                    <i class="fas fa-envelope text-5xl accent-color mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Email Me</h3>
+                    <p class="text-gray-400 mb-4">The fastest way to initiate a conversation or discuss a project requirement.</p>
+                    <a href="mailto:thallyace@gmail.com" class="accent-bg hover:opacity-90 text-white font-bold py-2 px-6 rounded-full transition duration-300 hover:scale-105">
+                        thallyace@gmail.com
+                    </a>
+                </div>
+
+                <!-- Contact Card 2: Phone -->
+                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center">
+                    <i class="fas fa-phone-alt text-5xl accent-color mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Call/Text</h3>
+                    <p class="text-gray-400 mb-4">For immediate technical inquiries or urgent business discussions.</p>
+                    <a href="tel:+254794812015" class="accent-bg hover:opacity-90 text-white font-bold py-2 px-6 rounded-full transition duration-300 hover:scale-105">
+                        +254 (0) 794812015
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-gray-500">
+                <p>I look forward to hearing about how my expertise can contribute to your team's success.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="header-bg py-4 mt-12 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Caleb Okonu Maera | ICT Professional Portfolio</p>
+    </footer>
+
+    <!-- JavaScript for Page Navigation and Modal -->
+    <script>
+        // Store the current active page ID
+        let currentPageId = 'home';
+        
+        // --- Lightbox/Modal Global Variables ---
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const captionText = document.getElementById("caption");
+        
+        /**
+         * Closes the lightbox modal.
+         */
+        function closeModal() {
+            if (modal) {
+                 modal.style.display = "none";
+            }
+        }
+
+        /**
+         * Switches the visible page content based on the provided page ID.
+         * Also updates global navigation style to mimic Material Tabs.
+         * @param {string} pageId - The ID of the page container to show.
+         */
+        function showPage(pageId) {
+            
+            // CRITICAL FIX: Close the modal if it's open when switching tabs
+            if (modal && modal.style.display === "flex") {
+                closeModal();
+            }
+
+            // 1. Handle page visibility
+            document.querySelectorAll('.page-content').forEach(div => {
+                div.classList.add('hidden');
+            });
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+                currentPageId = pageId;
+                window.scrollTo(0, 0); // Scroll to top on page change
+            }
+
+            // 2. Handle global navigation (Material Tab styling)
+            document.querySelectorAll('header .material-tab[data-page]').forEach(button => {
+                button.classList.remove('active');
+                button.classList.add('text-gray-400');
+            });
+
+            const navButton = document.querySelector(`header .material-tab[data-page="${pageId}"]`);
+            if (navButton) {
+                navButton.classList.add('active');
+                navButton.classList.remove('text-gray-400');
+            }
+
+            // 3. Special case for CV page: initialize inner tabs
+            if (pageId === 'cv_journey') {
+                // Ensure the CV summary section is shown and the first internal tab is active
+                const initialTabButton = document.querySelector('#cv_journey .material-tab[data-tab="summary"]');
+                if (initialTabButton) {
+                    showCVSection('summary', initialTabButton);
+                }
+            }
+        }
+
+        /**
+         * Switches the visible section content within the CV page.
+         * @param {string} sectionId - The short ID of the section to show (e.g., 'summary').
+         * @param {HTMLElement} clickedButton - The button element that was clicked.
+         */
+        function showCVSection(sectionId, clickedButton) {
+            // Hide all CV sections
+            document.querySelectorAll('.cv-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the requested CV section
+            const activeSection = document.getElementById('cv_section_' + sectionId);
+            if (activeSection) {
+                activeSection.classList.remove('hidden');
+            }
+
+            // Update internal tab button style
+            document.querySelectorAll('#cv_journey .material-tab[data-tab]').forEach(button => {
+                button.classList.remove('active');
+                button.classList.add('text-gray-400');
+            });
+
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+                clickedButton.classList.remove('text-gray-400');
+            }
+        }
+
+        // --- Lightbox/Modal Functions ---
+
+        /**
+         * Opens the lightbox modal with the provided image and caption.
+         */
+        function openModal(imgSrc, caption) {
+            modal.style.display = "flex";
+            modalImage.src = imgSrc;
+            captionText.innerHTML = caption;
+        }
+
+
+        // Close the modal if the user clicks anywhere outside of the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Initialize: Show the Home page by default on load
+        window.onload = function() {
+            showPage('home');
+        };
+
+    </script>
+</body>
+</html>
