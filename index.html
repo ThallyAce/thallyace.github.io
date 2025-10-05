@@ -19,7 +19,7 @@
         /* Persistent Header Styling */
         .header-bg {
             background-color: #1e1e1e; /* Elevated surface for MD */
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Stronger MD Shadow for sticky header */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Stronger MD Shadow for sticky header */
         }
         
         /* --- HIGH-CONTRAST CYAN ACCENT COLORS --- */
@@ -169,10 +169,22 @@
             
             <!-- Name and Contact Info Block -->
             <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-4 mb-4">
-                <div class="text-center md:text-left mb-4 md:mb-0">
-                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">CALEB OKONU MAERA</h1>
-                    <p class="text-lg sm:text-xl accent-color">Impactful Information Technology Professional</p>
+                
+                <!-- Profile Image and Name/Slogan Group -->
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <!-- New Round Profile Image -->
+                    <img src="https://thallyace.github.io/roundp-everywhere.jpg" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/80x80/2c2c2c/ffffff?text=Caleb';"
+                         alt="Caleb Okonu Maera Small Profile Photo"
+                         class="w-16 h-16 rounded-full object-cover border-2 border-cyan-400 shadow-lg hidden sm:block"
+                    >
+                    <!-- Text Block -->
+                    <div class="text-center md:text-left">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">CALEB OKONU MAERA</h1>
+                        <p class="text-lg sm:text-xl accent-color">Impactful Information Technology Professional</p>
+                    </div>
                 </div>
+
                 <!-- Contact Info (Clickable) -->
                 <div class="text-center md:text-right space-y-1 text-gray-400 text-sm">
                     <p>
@@ -224,24 +236,30 @@
 
             <section class="space-y-6">
                 <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 mb-6 accent-color">Technical Focus Areas</h3>
-                <!-- UPDATED GRID: From md:grid-cols-3 to lg:grid-cols-4 for 4 cards -->
+                <!-- UPDATED: Added cursor-pointer and onclick to md-card containers -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Home Image Cards -->
-                    <div class="md-card p-4">
-                        <img src="https://placehold.co/800x450/374151/ffffff?text=Network+Infrastructure" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Network';" alt="Network Infrastructure" class="rounded-lg w-full h-auto object-cover">
+                    
+                    <!-- Home Image Card 1: Network Infrastructure -->
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/networks-home.png', 'System Analysis & Networking Focus')">
+                        <img src="https://thallyace.github.io/networks-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Network+Focus';" alt="Network Infrastructure" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">System Analysis & Networking</p>
                     </div>
-                    <div class="md-card p-4">
-                        <img src="https://placehold.co/800x450/374151/ffffff?text=Web+Design+and+E-Commerce" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Web+Dev';" alt="Web Design and E-Commerce" class="rounded-lg w-full h-auto object-cover">
+                    
+                    <!-- Home Image Card 2: E-Commerce -->
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/websiseo-home.png', 'E-Commerce & Digital Presence Focus')">
+                        <img src="https://thallyace.github.io/websiseo-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Web+Dev+Focus';" alt="Web Design and E-Commerce" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">E-Commerce & Digital Presence</p>
                     </div>
-                    <div class="md-card p-4">
-                        <img src="https://placehold.co/800x450/374151/ffffff?text=Data+and+Security+Management" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Security';" alt="Data and Security Management" class="rounded-lg w-full h-auto object-cover">
+                    
+                    <!-- Home Image Card 3: Data and Security -->
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/databack-home.png', 'Data, Backup & Security Focus')">
+                        <img src="https://thallyace.github.io/databack-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Security+Focus';" alt="Data and Security Management" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">Data, Backup & Security</p>
                     </div>
-                    <!-- NEW CARD: Hardware Diagnostics -->
-                    <div class="md-card p-4">
-                        <img src="https://placehold.co/800x450/374151/ffffff?text=Hardware+Diagnostics" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Hardware';" alt="Hardware Diagnostics and Repair" class="rounded-lg w-full h-auto object-cover">
+                    
+                    <!-- Home Image Card 4: Hardware Diagnostics -->
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/diadnostics-home.png', 'Advanced Hardware Diagnostics & Repair Focus')">
+                        <img src="https://thallyace.github.io/diadnostics-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Hardware+Focus';" alt="Hardware Diagnostics and Repair" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">Advanced Hardware Diagnostics & Repair</p>
                     </div>
                 </div>
@@ -457,8 +475,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 
                 <div class="lg:col-span-1 md-card p-6 flex flex-col items-center">
-                    <div class="w-full max-w-xs h-auto overflow-hidden rounded-xl border-4 accent-border" style="border-color: #4DD0E1; box-shadow: 0 0 15px rgba(77, 208, 225, 0.6);">
-                        <img src="https://placehold.co/400x500/374151/ffffff?text=Professional+Portrait" onerror="this.onerror=null; this.src='https://placehold.co/400x500/374151/ffffff?text=Portrait';" alt="Placeholder professional image" class="w-full h-full object-cover">
+                    <!-- Image is clickable to open modal -->
+                    <div class="w-full max-w-xs h-auto overflow-hidden rounded-xl md-card">
+                        <img src="https://thallyace.github.io/proffessionalportrait-aboutme.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x500/374151/ffffff?text=Portrait';" 
+                             alt="Caleb Okonu Maera Professional Image" 
+                             class="w-full h-full object-cover cursor-pointer hover:opacity-90 transition duration-300"
+                             onclick="openModal(this.src, 'Caleb Okonu Maera - Professional Portrait')"
+                        >
                     </div>
                     <h4 class="mt-4 text-2xl font-bold text-white">My Philosophy</h4>
                     <p class="text-gray-400 text-center mt-2">Technology is the leverage point for business efficiency and strategic advantage.</p>
@@ -483,66 +507,66 @@
             </div>
         </div>
 
-        <!-- Portfolio Page -->
+        <!-- Portfolio Page (SKILLS SHOWCASE) -->
         <div id="portfolio" class="page-content hidden space-y-10">
-            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Project Portfolio</h2>
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Core Skills & Technical Depth Showcase</h2>
             
-            <p class="text-lg text-gray-300">A showcase of systems, web designs, and technical infrastructure projects. Click on any image to expand and view details.</p>
+            <p class="text-lg text-gray-300">These cards represent the core technical domains where I provide expert-level analysis, maintenance, and strategic deployment. Click to view an area of expertise.</p>
 
-            <!-- Portfolio Grid -->
+            <!-- Portfolio Grid (SKILLS) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Project 1: E-commerce Site Admin -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+1+Detail', 'E-commerce Administration & SEO')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=E-commerce+SEO" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=E-commerce';" alt="E-commerce SEO Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 1: Full-Stack E-commerce Management (uses seo-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/seo-portfolio.png', 'Full-stack platform administration, including SEO, Ads, and domain configuration.')">
+                    <img src="https://thallyace.github.io/seo-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=E-commerce+Skill';" alt="E-commerce SEO Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold accent-color">E-commerce Site Optimization</h3>
-                        <p class="text-gray-400 text-sm">WooCommerce/Shopify administration and comprehensive SEO fixes.</p>
+                        <h3 class="text-xl font-semibold accent-color">Full-Stack E-commerce Mastery</h3>
+                        <p class="text-gray-400 text-sm">In-depth management of <strong><i>WooCommerce</i></strong> and <strong><i>Shopify</i></strong>, including <strong><i>SEO</i></strong> optimization, payment gateways, and site resilience planning.</p>
                     </div>
                 </div>
 
-                <!-- Project 2: Network Deployment -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+2+Detail', 'Enterprise Network Deployment')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=Network+Deployment" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Network';" alt="Network Deployment Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 2: Network & Infrastructure Engineering (uses netw-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/netw-portfolio.png', 'Advanced configuration and troubleshooting for routers, switches, and DHCP services.')">
+                    <img src="https://thallyace.github.io/netw-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Network+Skill';" alt="Network Deployment Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold accent-color">Network Infrastructure Build</h3>
-                        <p class="text-gray-400 text-sm">Design, deployment, and configuration of robust small-to-medium enterprise networks.</p>
+                        <h3 class="text-xl font-semibold accent-color">Network Infrastructure Engineering</h3>
+                        <p class="text-gray-400 text-sm">Proficiency in <strong><i>Servers</i></strong>, <strong><i>Routers</i></strong>, and <strong><i>Switches</i></strong> management across both <strong><i>Microsoft</i></strong> and <strong><i>Linux</i></strong> enterprise environments.</p>
                     </div>
                 </div>
                 
-                <!-- Project 3: Data Migration -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+3+Detail', 'SQL Database Migration')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=SQL+Migration" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Database';" alt="SQL Database Migration Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 3: Data Integrity & DB Management (uses sqlm-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/sqlm-portfolio.png', 'Designing and implementing robust SQL database backup and disaster recovery protocols.')">
+                    <img src="https://thallyace.github.io/sqlm-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Database+Skill';" alt="SQL Database Migration Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold accent-color">SQL Database & Backup System</h3>
-                        <p class="text-gray-400 text-sm">Implementation of secure, efficient database backup and recovery protocols.</p>
+                        <h3 class="text-xl font-semibold accent-color">Data Integrity & Disaster Recovery</h3>
+                        <p class="text-gray-400 text-sm">Expertise in <strong><i>SQL Database Design</i></strong>, comprehensive <strong><i>Backup Management</i></strong>, and implementing effective disaster <strong><i>Recovery</i></strong> strategies.</p>
                     </div>
                 </div>
 
-                <!-- Project 4: Hardware Repair -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+4+Detail', 'Hardware Diagnostics')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=Hardware+Repair" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Hardware';" alt="Hardware Repair Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 4: Advanced Hardware Diagnostics (uses hwrp-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/hwrp-portfolio.png', 'Component-level troubleshooting, BIOS flashing, and strategic component replacement.')">
+                    <img src="https://thallyace.github.io/hwrp-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Hardware+Skill';" alt="Hardware Repair Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Advanced Hardware Diagnostics</h3>
-                        <p class="text-gray-400 text-sm">Case studies in motherboard repair, component sourcing, and BIOS updates.</p>
+                        <p class="text-gray-400 text-sm">Deep-level troubleshooting of <strong><i>motherboards</i></strong>, <strong><i>BIOS</i></strong> issues, and component replacement for optimal performance and longevity.</p>
                     </div>
                 </div>
 
-                <!-- Project 5: Training Content -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+5+Detail', 'Technical Training Module')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=Training+Module" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Training';" alt="Training Module Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 5: Technical Training & Curriculum (uses teach-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/teach-portfolio.png', 'Developing ICT syllabi and delivering practical, hands-on technical training to diverse groups.')">
+                    <img src="https://thallyace.github.io/teach-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Training+Skill';" alt="Training Module Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold accent-color">Technical Training Modules</h3>
-                        <p class="text-gray-400 text-sm">Samples of developed curriculum content and user documentation for ICT training.</p>
+                        <h3 class="text-xl font-semibold accent-color">Technical Training & Pedagogy</h3>
+                        <p class="text-gray-400 text-sm">Curriculum development and effective delivery of <strong><i>technical practical exercises</i></strong>, ensuring high-quality knowledge transfer.</p>
                     </div>
                 </div>
                 
-                <!-- Project 6: Security Audit -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://placehold.co/600x400/374151/ffffff?text=Project+6+Detail', 'System Security Audit')">
-                    <img src="https://placehold.co/600x400/374151/ffffff?text=Security+Audit" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Security';" alt="Security Audit Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
+                <!-- Skill 6: Cyber Security & Compliance (uses audit-portfolio.png) -->
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/audit-portfolio.png', 'Proactive monitoring, patch management, and security incident response protocols.')">
+                    <img src="https://thallyace.github.io/audit-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Security+Skill';" alt="Security Audit Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold accent-color">System Security & Patch Management</h3>
-                        <p class="text-gray-400 text-sm">Protocol documentation for regular system patching, backups, and security incident response.</p>
+                        <h3 class="text-xl font-semibold accent-color">Cyber Resilience & Patch Management</h3>
+                        <p class="text-gray-400 text-sm">System security screening, proactive <strong><i>patch management</i></strong>, and network activity monitoring for effective <strong><i>cyber threat</i></strong> prevention.</p>
                     </div>
                 </div>
 
