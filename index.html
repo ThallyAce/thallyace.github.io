@@ -9,8 +9,7 @@
     <!-- Load Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- AOS (Animate On Scroll) CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) CSS - REMOVED -->
 
     <style>
         /* Custom styles for dark theme and typography - Material Design aesthetic */
@@ -172,11 +171,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             
             <!-- Name and Contact Info Block -->
-            <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-4 mb-4" 
-                 data-aos="fade-down" data-aos-duration="500">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-4 mb-4">
                 
                 <!-- Profile Image and Name/Slogan Group -->
-                <div class="flex items-center space-x-4 mb-4 md:mb-0" data-aos="fade-right" data-aos-delay="100" data-aos-duration="600">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
                     <!-- Round Profile Image -->
                     <img src="https://thallyace.github.io/roundp-everywhere.jpg" 
                          onerror="this.onerror=null; this.src='https://placehold.co/80x80/2c2c2c/ffffff?text=Caleb';"
@@ -191,14 +189,14 @@
                 </div>
 
                 <!-- Contact Info (Clickable) -->
-                <div class="text-center md:text-right space-y-1 text-gray-400 text-sm" data-aos="fade-left" data-aos-delay="200" data-aos-duration="600">
-                    <p data-aos="fade-left" data-aos-delay="300">
+                <div class="text-center md:text-right space-y-1 text-gray-400 text-sm">
+                    <p>
                         <i class="fas fa-phone mr-2 text-cyan-400"></i> 
                         <a href="tel:+254794812015" class="hover:text-white transition duration-200 font-medium">
                             +254 (0) 794812015
                         </a>
                     </p>
-                    <p data-aos="fade-left" data-aos-delay="400">
+                    <p>
                         <i class="fas fa-envelope mr-2 text-cyan-400"></i> 
                         <a href="mailto:thallyace@gmail.com" class="hover:text-white transition duration-200 font-medium">
                             thallyace@gmail.com
@@ -207,7 +205,7 @@
                 </div>
             </div>
 
-            <!-- Main Navigation Tabs (No AOS on sticky elements to prevent flickering) -->
+            <!-- Main Navigation Tabs -->
             <div class="material-tab-bar flex flex-nowrap md:flex-wrap overflow-x-auto justify-start md:justify-center -mb-4">
                 <button id="nav-home" data-page="home" onclick="showPage('home')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">Home</button>
                 <button id="nav-cv_journey" data-page="cv_journey" onclick="showPage('cv_journey')" class="material-tab text-gray-400 flex-grow md:flex-grow-0">CV / Journey</button>
@@ -221,20 +219,20 @@
     <!-- Main Content Container -->
     <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
 
-        <!-- Home Page - RE-ENABLED fade-up animation for tab click -->
-        <div id="home" class="page-content space-y-12" data-aos="fade-up" data-aos-duration="600">
+        <!-- Home Page -->
+        <div id="home" class="page-content space-y-12">
             
-            <!-- AOS: Fade Down for Main Header -->
-            <header class="text-center py-16 md-card border border-gray-800" data-aos="fade-down" data-aos-duration="700">
+            <!-- Main Header -->
+            <header class="text-center py-16 md-card border border-gray-800">
                 <!-- Responsive text sizing applied -->
                 <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
-                    <span class="accent-color block" data-aos="fade-right" data-aos-delay="200">Mastering Technology,</span>
-                    Driving <span class="text-white" data-aos="fade-left" data-aos-delay="300">Business Impact.</span>
+                    <span class="accent-color block">Mastering Technology,</span>
+                    Driving <span class="text-white">Business Impact.</span>
                 </h2>
-                <p class="mt-4 text-xl text-gray-400" data-aos="fade-up" data-aos-delay="400">
+                <p class="mt-4 text-xl text-gray-400">
                     Highly adept ICT Professional focused on strategic planning, robust system management, and full-stack technical delivery.
                 </p>
-                <div class="mt-8" data-aos="zoom-in" data-aos-delay="500">
+                <div class="mt-8">
                     <button onclick="showPage('cv_journey')" class="accent-bg hover:opacity-90 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
                         Explore My Journey <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -242,32 +240,32 @@
             </header>
 
             <section class="space-y-6">
-                <!-- AOS: Fade Right for Section Title -->
-                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 mb-6 accent-color" data-aos="fade-right">Technical Focus Areas</h3>
+                <!-- Section Title -->
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 mb-6 accent-color">Technical Focus Areas</h3>
                 
-                <!-- AOS: Staggered Fade Up for Focus Cards -->
+                <!-- Focus Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     
                     <!-- Home Image Card 1: Network Infrastructure -->
-                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/networks-home.png', 'System Analysis & Networking Focus')" data-aos="fade-up" data-aos-delay="100">
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/networks-home.png', 'System Analysis & Networking Focus')">
                         <img src="https://thallyace.github.io/networks-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Network+Focus';" alt="Network Infrastructure" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">System Analysis & Networking</p>
                     </div>
                     
                     <!-- Home Image Card 2: E-Commerce -->
-                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/websiseo-home.png', 'E-Commerce & Digital Presence Focus')" data-aos="fade-up" data-aos-delay="200">
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/websiseo-home.png', 'E-Commerce & Digital Presence Focus')">
                         <img src="https://thallyace.github.io/websiseo-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Web+Dev+Focus';" alt="Web Design and E-Commerce" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">E-Commerce & Digital Presence</p>
                     </div>
                     
                     <!-- Home Image Card 3: Data and Security -->
-                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/databack-home.png', 'Data, Backup & Security Focus')" data-aos="fade-up" data-aos-delay="300">
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/databack-home.png', 'Data, Backup & Security Focus')">
                         <img src="https://thallyace.github.io/databack-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Security+Focus';" alt="Data and Security Management" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">Data, Backup & Security</p>
                     </div>
                     
                     <!-- Home Image Card 4: Hardware Diagnostics -->
-                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/diadnostics-home.png', 'Advanced Hardware Diagnostics & Repair Focus')" data-aos="fade-up" data-aos-delay="400">
+                    <div class="md-card p-4 cursor-pointer" onclick="openModal('https://thallyace.github.io/diadnostics-home.png', 'Advanced Hardware Diagnostics & Repair Focus')">
                         <img src="https://thallyace.github.io/diadnostics-home.png" onerror="this.onerror=null; this.src='https://placehold.co/800x450/374151/ffffff?text=Hardware+Focus';" alt="Hardware Diagnostics and Repair" class="rounded-lg w-full h-auto object-cover">
                         <p class="mt-3 text-center text-gray-300 font-semibold">Advanced Hardware Diagnostics & Repair</p>
                     </div>
@@ -275,10 +273,10 @@
             </section>
         </div>
 
-        <!-- CV / Professional Journey Page - RE-ENABLED fade-up animation for tab click -->
-        <div id="cv_journey" class="page-content hidden space-y-8" data-aos="fade-up" data-aos-duration="600">
+        <!-- CV / Professional Journey Page -->
+        <div id="cv_journey" class="page-content hidden space-y-8">
             
-            <!-- INTERNAL TABS (No AOS on internal sticky/static tabs) -->
+            <!-- INTERNAL TABS -->
             <div class="material-tab-bar flex overflow-x-auto space-x-1 mb-4 md-card p-1 bg-black/30 rounded-lg">
                 <button data-tab="summary" onclick="showCVSection('summary', this)" class="material-tab active text-sm sm:text-base whitespace-nowrap flex-grow text-center">Summary</button>
                 <button data-tab="competencies" onclick="showCVSection('competencies', this)" class="material-tab text-gray-400 text-sm sm:text-base whitespace-nowrap flex-grow text-center">Competencies</button>
@@ -291,19 +289,19 @@
 
             <!-- Section 1: Professional Summary -->
             <section id="cv_section_summary" class="cv-section space-y-4">
-                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Professional Summary</h3>
-                <p class="text-gray-300 leading-relaxed md-card p-6" data-aos="zoom-in" data-aos-anchor-placement="top-center">
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Professional Summary</h3>
+                <p class="text-gray-300 leading-relaxed md-card p-6">
                     A visionary and resilient <strong>Information Technology professional</strong>, adept at leveraging advanced technology to <strong>expedite business operations</strong> and bypass technical obstacles. Well-trained in delivering technology solutions that address complex business challenges, with an excellent track record of providing wide-ranging, high-quality IT services. Proficient in <strong>analyzing information system needs</strong>, evaluating end-user requirements, custom designing solutions, and <strong>troubleshooting complex information systems</strong>. My ultimate goal is to become a valuable mutual asset by providing efficient, strategic information technology expertise, contributing effectively and tangibly to organizational success.
                 </p>
             </section>
 
             <!-- Section 2: Core Competencies -->
             <section id="cv_section_competencies" class="cv-section hidden space-y-6">
-                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Core Competencies</h3>
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Core Competencies</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Competency 1: Web/E-commerce -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="100">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-shopping-cart text-xl text-white"></i>
@@ -314,7 +312,7 @@
                     </div>
                     
                     <!-- Competency 2: Infrastructure/Networking -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="200">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-network-wired text-xl text-white"></i>
@@ -326,7 +324,7 @@
                     </div>
 
                     <!-- Competency 3: Hardware & Diagnostics -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="300">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-microchip text-xl text-white"></i>
@@ -337,7 +335,7 @@
                     </div>
 
                     <!-- Competency 4: Data & Security -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="400">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-database text-xl text-white"></i>
@@ -348,7 +346,7 @@
                     </div>
 
                     <!-- Competency 5: Development & Analysis -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="500">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-code text-xl text-white"></i>
@@ -359,7 +357,7 @@
                     </div>
 
                     <!-- Competency 6: Training & Strategy -->
-                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;" data-aos="fade-up" data-aos-delay="600">
+                    <div class="md-card p-6 border-l-4 accent-border" style="border-left-color: #00BCD4;">
                         <div class="flex items-center space-x-4 mb-2">
                             <div class="w-12 h-12 accent-bg rounded-full flex items-center justify-center shadow-lg">
                                 <i class="fas fa-cogs text-xl text-white"></i>
@@ -373,80 +371,80 @@
 
             <!-- Section 3: Professional Journey (Timeline) -->
             <section id="cv_section_journey" class="cv-section hidden space-y-6">
-                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Professional Journey</h3>
+                <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Professional Journey</h3>
                 <div class="timeline-container space-y-10 pt-4">
                     
                     <!-- Job 1: Computer Shop Manager -->
-                    <div class="relative pl-12" data-aos="fade-left" data-aos-delay="100">
+                    <div class="relative pl-12">
                         <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
                         <div class="md-card p-6">
                             <h4 class="text-2xl font-bold accent-color">Computer Shop Manager</h4>
                             <p class="text-lg font-semibold text-gray-300">Lanso Tech Solutions | April 2025 – September 2025</p>
                             <p class="mt-4 text-gray-400">Spearheaded operational efficiency and technical service delivery:</p>
                             <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
-                                <li data-aos="fade-up" data-aos-delay="300"><b>Digital Asset Administration:</b> Administered the company's website, managing product catalogs, authoring technical blogs, rectifying <strong>SEO</strong> issues, and initiating backup/restoration across various platforms.</li>
-                                <li data-aos="fade-up" data-aos-delay="400"><b>Complex Diagnostics & Upgrades:</b> Carried out both on-site and remote hardware diagnostics, upgrades, and repair for clients, encompassing <strong>BIOS updates</strong>, <strong>motherboard examination</strong>, and <strong>component replacement</strong>.</li>
-                                <li data-aos="fade-up" data-aos-delay="500"><b>Sales and Inventory Management:</b> Oversaw and accounted for all sales transactions, ensuring that new inventory was accurately recorded within the <strong>POS system</strong>, generated monthly sales reports, and provided recommendations for future market forecasts.</li>
+                                <li><b>Digital Asset Administration:</b> Administered the company's website, managing product catalogs, authoring technical blogs, rectifying <strong>SEO</strong> issues, and initiating backup/restoration across various platforms.</li>
+                                <li><b>Complex Diagnostics & Upgrades:</b> Carried out both on-site and remote hardware diagnostics, upgrades, and repair for clients, encompassing <strong>BIOS updates</strong>, <strong>motherboard examination</strong>, and <strong>component replacement</strong>.</li>
+                                <li><b>Sales and Inventory Management:</b> Oversaw and accounted for all sales transactions, ensuring that new inventory was accurately recorded within the <strong>POS system</strong>, generated monthly sales reports, and provided recommendations for future market forecasts.</li>
                             </ol>
                         </div>
                     </div>
 
                     <!-- Job 2: ICT Trainer Intern -->
-                    <div class="relative pl-12" data-aos="fade-right" data-aos-delay="600">
+                    <div class="relative pl-12">
                         <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
                         <div class="md-card p-6">
                             <h4 class="text-2xl font-bold accent-color">ICT Trainer Intern</h4>
                             <p class="text-lg font-semibold text-gray-300">The Kabete National Polytechnic | September 2024 – December 2024</p>
                             <p class="mt-4 text-gray-400">Delivered quality education and maintained academic standards:</p>
                             <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
-                                <li data-aos="fade-up" data-aos-delay="800"><b>Curriculum Development:</b> Developed necessary and accurate content for teaching in various <strong>ICT subject areas</strong>, ensuring strict adherence to the required syllabus and course specifications.</li>
-                                <li data-aos="fade-up" data-aos-delay="900"><b>Instructional Delivery:</b> Provided quality, efficient teaching, and guidance in <strong>technical practical exercises</strong>, consistently encouraging student learning and technical skill development.</li>
-                                <li data-aos="fade-up" data-aos-delay="1000"><b>Assessment and Compliance:</b> Ensured all marking, student assessments, and moderation were complete and accurate, maintaining records of student achievements as required by sector bodies.</li>
+                                <li><b>Curriculum Development:</b> Developed necessary and accurate content for teaching in various <strong>ICT subject areas</strong>, ensuring strict adherence to the required syllabus and course specifications.</li>
+                                <li><b>Instructional Delivery:</b> Provided quality, efficient teaching, and guidance in <strong>technical practical exercises</strong>, consistently encouraging student learning and technical skill development.</li>
+                                <li><b>Assessment and Compliance:</b> Ensured all marking, student assessments, and moderation were complete and accurate, maintaining records of student achievements as required by sector bodies.</li>
                             </ol>
                         </div>
                     </div>
 
                     <!-- Job 3: ICT Technician -->
-                    <div class="relative pl-12" data-aos="fade-left" data-aos-delay="100">
+                    <div class="relative pl-12">
                         <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
                         <div class="md-card p-6">
                             <h4 class="text-2xl font-bold accent-color">ICT Technician</h4>
                             <p class="text-lg font-semibold text-gray-300">Ace Software Solutions | January 2020 – January 2023</p>
                             <p class="mt-4 text-gray-400">Executed critical system maintenance and resolved complex infrastructure challenges:</p>
                             <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
-                                <li data-aos="fade-up" data-aos-delay="300"><b>Tier 1 and 2 Technical Mastery:</b> Delivered efficient technical support to users, resolving complex technical problems with computers, <strong>servers</strong>, and <strong>network infrastructure</strong>, including critical configuration errors.</li>
-                                <li data-aos="fade-up" data-aos-delay="400"><b>System Security and Compliance:</b> Kept IT systems operational and updated, ensuring patches and <strong>backups</strong> were done regularly. Monitored network and system security, and responded effectively to security alerts and incidents.</li>
-                                <li data-aos="fade-up" data-aos-delay="500"><b>Asset and Installation Management:</b> Managed inventory and maintained accurate records of <strong>IT assets</strong>, including software license management. Installed and configured IT systems for customers, ensuring proper functionality and integration.</li>
+                                <li><b>Tier 1 and 2 Technical Mastery:</b> Delivered efficient technical support to users, resolving complex technical problems with computers, <strong>servers</strong>, and <strong>network infrastructure</strong>, including critical configuration errors.</li>
+                                <li><b>System Security and Compliance:</b> Kept IT systems operational and updated, ensuring patches and <strong>backups</strong> were done regularly. Monitored network and system security, and responded effectively to security alerts and incidents.</li>
+                                <li><b>Asset and Installation Management:</b> Managed inventory and maintained accurate records of <strong>IT assets</strong>, including software license management. Installed and configured IT systems for customers, ensuring proper functionality and integration.</li>
                             </ol>
                         </div>
                     </div>
 
                     <!-- Job 4: Cyber Cafe Attendant -->
-                    <div class="relative pl-12" data-aos="fade-right" data-aos-delay="600">
+                    <div class="relative pl-12">
                         <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
                         <div class="md-card p-6">
                             <h4 class="text-2xl font-bold accent-color">Cyber Cafe Attendant</h4>
                             <p class="text-lg font-semibold text-gray-300">Seniors Cyber | September 2018 – August 2019</p>
                             <p class="mt-4 text-gray-400">Maintained high standards of customer service and technical functionality:</p>
                             <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
-                                <li data-aos="fade-up" data-aos-delay="800"><b>Service and Support:</b> Provided efficient customer support, including printing and basic editing assistance. Resolved technical issues with computers, printers, and network connections promptly.</li>
-                                <li data-aos="fade-up" data-aos-delay="900"><b>Transaction Integrity:</b> Managed customer payments and maintained accurate transaction records, including charges for printing and editing services.</li>
-                                <li data-aos="fade-up" data-aos-delay="1000"><b>Operational Security:</b> Monitored computer and network activity to ensure security, preventing unauthorized printing or editing, and maintained an organized and functional workspace.</li>
+                                <li><b>Service and Support:</b> Provided efficient customer support, including printing and basic editing assistance. Resolved technical issues with computers, printers, and network connections promptly.</li>
+                                <li><b>Transaction Integrity:</b> Managed customer payments and maintained accurate transaction records, including charges for printing and editing services.</li>
+                                <li><b>Operational Security:</b> Monitored computer and network activity to ensure security, preventing unauthorized printing or editing, and maintained an organized and functional workspace.</li>
                             </ol>
                         </div>
                     </div>
 
                     <!-- Job 5: Attaché Roles -->
-                    <div class="relative pl-12" data-aos="fade-left" data-aos-delay="100">
+                    <div class="relative pl-12">
                         <div class="absolute w-4 h-4 rounded-full accent-bg border-2 accent-border left-[1.3rem] -top-1" style="border-color: #00838F;"></div>
                         <div class="md-card p-6">
                             <h4 class="text-2xl font-bold accent-color">ICT Attaché (Dual Experience)</h4>
                             <p class="text-lg font-semibold text-gray-300">Nyamira Tea Farmers Sacco Society & Kisii University</p>
                             <p class="mt-4 text-gray-400">Gained diverse exposure in financial and academic IT environments (Jan 2017 – Apr 2017 / Sep 2015 – Dec 2015):</p>
                             <ol class="mt-3 ml-5 list-decimal space-y-2 text-gray-300">
-                                <li data-aos="fade-up" data-aos-delay="300"><b>Sacco Systems Support:</b> Assisted in the maintenance and support of Sacco-specific software (member management, loan processing) and supported the implementation and management of <strong>digital banking</strong> and mobile money services.</li>
-                                <li data-aos="fade-up" data-aos-delay="400"><b>University Infrastructure:</b> Installed and configured computer software for faculty/students, assisted in the maintenance and troubleshooting of the university's <strong>IT infrastructure</strong>, and performed routine system maintenance tasks.</li>
-                                <li data-aos="fade-up" data-aos-delay="500"><b>Development & Security:</b> Contributed to computer <strong>security initiatives</strong> (updates and vulnerability assessments) and participated in debugging and program correction for university-developed software applications.</li>
+                                <li><b>Sacco Systems Support:</b> Assisted in the maintenance and support of Sacco-specific software (member management, loan processing) and supported the implementation and management of <strong>digital banking</strong> and mobile money services.</li>
+                                <li><b>University Infrastructure:</b> Installed and configured computer software for faculty/students, assisted in the maintenance and troubleshooting of the university's <strong>IT infrastructure</strong>, and performed routine system maintenance tasks.</li>
+                                <li><b>Development & Security:</b> Contributed to computer <strong>security initiatives</strong> (updates and vulnerability assessments) and participated in debugging and program correction for university-developed software applications.</li>
                             </ol>
                         </div>
                     </div>
@@ -457,17 +455,17 @@
             <section id="cv_section_declaration" class="cv-section hidden space-y-8">
                  <!-- Voluntary Roles -->
                 <div class="space-y-4">
-                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Voluntary Professional Roles</h3>
-                    <div class="md-card p-6 space-y-3" data-aos="fade-up" data-aos-delay="100">
-                        <p class="text-gray-300" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-search-dollar mr-3 accent-color"></i> <b>On Demand SEO, Web Design & Hosting:</b> Utilizing advanced techniques to enhance online visibility and deliver robust web solutions.</p>
-                        <p class="text-gray-300" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-server mr-3 accent-color"></i> <b>On Demand DevOps Engineer (with Linux expertise):</b> Applying deployment best practices and leveraging <strong>Linux</strong> to optimize development and operational processes.</p>
+                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 accent-color">Voluntary Professional Roles</h3>
+                    <div class="md-card p-6 space-y-3">
+                        <p class="text-gray-300"><i class="fas fa-search-dollar mr-3 accent-color"></i> <b>On Demand SEO, Web Design & Hosting:</b> Utilizing advanced techniques to enhance online visibility and deliver robust web solutions.</p>
+                        <p class="text-gray-300"><i class="fas fa-server mr-3 accent-color"></i> <b>On Demand DevOps Engineer (with Linux expertise):</b> Applying deployment best practices and leveraging <strong>Linux</strong> to optimize development and operational processes.</p>
                     </div>
                 </div>
 
                 <!-- Declaration of Commitment -->
                 <div class="space-y-4 pt-4">
-                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 text-red-400" data-aos="fade-right" data-aos-delay="400">Declaration of Commitment</h3>
-                    <div class="bg-gray-900 md-card p-8 border-2 border-red-500 shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+                    <h3 class="text-3xl font-bold border-b border-gray-700 pb-4 text-red-400">Declaration of Commitment</h3>
+                    <div class="bg-gray-900 md-card p-8 border-2 border-red-500 shadow-xl">
                         <p class="text-gray-200 text-xl font-medium leading-relaxed italic">
                             "I am not seeking a role for mere participation, but for decisive impact. My commitment to any organization is underpinned by a relentless drive to deliver tangible, bottom-line results through <strong>resilient IT infrastructure</strong>, optimized processes, and strategic technology adoption. I guarantee technical mastery, proactive problem resolution, and a dedicated focus on transforming challenges into high-value operational successes. My expertise is an investment in stability and growth."
                         </p>
@@ -477,15 +475,15 @@
 
         </div>
 
-        <!-- About Me Page - RE-ENABLED fade-up animation for tab click -->
-        <div id="about_me" class="page-content hidden space-y-10" data-aos="fade-up" data-aos-duration="600">
-            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">About Caleb Okonu Maera</h2>
+        <!-- About Me Page -->
+        <div id="about_me" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">About Caleb Okonu Maera</h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 
-                <div class="lg:col-span-1 md-card p-6 flex flex-col items-center" data-aos="fade-right" data-aos-delay="100">
+                <div class="lg:col-span-1 md-card p-6 flex flex-col items-center">
                     <!-- Image is clickable to open modal -->
-                    <div class="w-full max-w-xs h-auto overflow-hidden rounded-xl md-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-full max-w-xs h-auto overflow-hidden rounded-xl md-card">
                         <!-- Note: Cannot crop images, so using the provided placeholder logic -->
                         <img src="https://thallyace.github.io/proffessionalportrait-aboutme.jpg" 
                              onerror="this.onerror=null; this.src='https://placehold.co/400x500/374151/ffffff?text=Portrait';" 
@@ -494,40 +492,40 @@
                              onclick="openModal(this.src, 'Caleb Okonu Maera - Professional Portrait')"
                         >
                     </div>
-                    <h4 class="mt-4 text-2xl font-bold text-white" data-aos="fade-up" data-aos-delay="400">My Philosophy</h4>
-                    <p class="text-gray-400 text-center mt-2" data-aos="fade-up" data-aos-delay="500">Technology is the leverage point for business efficiency and strategic advantage.</p>
+                    <h4 class="mt-4 text-2xl font-bold text-white">My Philosophy</h4>
+                    <p class="text-gray-400 text-center mt-2">Technology is the leverage point for business efficiency and strategic advantage.</p>
                 </div>
 
                 <div class="lg:col-span-2 space-y-6">
-                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4" data-aos="fade-left" data-aos-delay="200">
+                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4">
                         I am a highly motivated and skilled <strong>ICT Professional</strong> with a robust background spanning system analysis, network management, hardware diagnostics, and e-commerce development. My career journey is characterized by successfully navigating complex technological landscapes to deliver resilient and effective business solutions. I thrive on overcoming technological obstacles—from troubleshooting deep-level server configuration errors to administering high-traffic <strong>WooCommerce</strong> sites.
                     </p>
-                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4" data-aos="fade-left" data-aos-delay="400">
+                    <p class="text-lg text-gray-300 leading-relaxed md-card p-4">
                         My education, culminating in a <strong>Diploma in Technical Trainer Education ICT</strong>, equips me not only with deep technical knowledge but also with the crucial ability to <strong>communicate technical information clearly</strong> to non-technical professionals and train future talent effectively. This dual capability ensures seamless project integration and maximum team utilization.
                     </p>
-                    <div class="md-card p-6 shadow-inner border-l-4 accent-border" style="border-left-color: #4DD0E1;" data-aos="fade-left" data-aos-delay="600">
+                    <div class="md-card p-6 shadow-inner border-l-4 accent-border" style="border-left-color: #4DD0E1;">
                         <h4 class="text-xl font-semibold accent-color mb-3">Key Differentiators</h4>
                         <ul class="list-disc ml-5 text-gray-400 space-y-2">
-                            <li data-aos="fade-up" data-aos-delay="700">Proven ability to bridge the gap between technical requirements and organizational goals.</li>
-                            <li data-aos="fade-up" data-aos-delay="800">Extensive hands-on experience across both <strong>Microsoft</strong> and <strong>Linux</strong> operating systems and environments.</li>
-                            <li data-aos="fade-up" data-aos-delay="900">Commitment to <strong>Quality Assurance</strong> and continuous process improvement in IT service delivery.</li>
+                            <li>Proven ability to bridge the gap between technical requirements and organizational goals.</li>
+                            <li>Extensive hands-on experience across both <strong>Microsoft</strong> and <strong>Linux</strong> operating systems and environments.</li>
+                            <li>Commitment to <strong>Quality Assurance</strong> and continuous process improvement in IT service delivery.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Portfolio Page (SKILLS SHOWCASE) - RE-ENABLED fade-up animation for tab click -->
-        <div id="portfolio" class="page-content hidden space-y-10" data-aos="fade-up" data-aos-duration="600">
-            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Core Skills & Technical Depth Showcase</h2>
+        <!-- Portfolio Page (SKILLS SHOWCASE) -->
+        <div id="portfolio" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Core Skills & Technical Depth Showcase</h2>
             
-            <p class="text-lg text-gray-300" data-aos="fade-up" data-aos-delay="100">These cards represent the core technical domains where I provide expert-level analysis, maintenance, and strategic deployment. Click to view an area of expertise.</p>
+            <p class="text-lg text-gray-300">These cards represent the core technical domains where I provide expert-level analysis, maintenance, and strategic deployment. Click to view an area of expertise.</p>
 
-            <!-- Portfolio Grid (SKILLS) - AOS: Staggered Zoom In -->
+            <!-- Portfolio Grid (SKILLS) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Skill 1: Full-Stack E-commerce Management (uses seo-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/seo-portfolio.png', 'Full-stack platform administration, including SEO, Ads, and domain configuration.')" data-aos="zoom-in" data-aos-delay="200">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/seo-portfolio.png', 'Full-stack platform administration, including SEO, Ads, and domain configuration.')">
                     <img src="https://thallyace.github.io/seo-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=E-commerce+Skill';" alt="E-commerce SEO Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Full-Stack E-commerce Mastery</h3>
@@ -536,7 +534,7 @@
                 </div>
 
                 <!-- Skill 2: Network & Infrastructure Engineering (uses netw-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/netw-portfolio.png', 'Advanced configuration and troubleshooting for routers, switches, and DHCP services.')" data-aos="zoom-in" data-aos-delay="300">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/netw-portfolio.png', 'Advanced configuration and troubleshooting for routers, switches, and DHCP services.')">
                     <img src="https://thallyace.github.io/netw-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Network+Skill';" alt="Network Deployment Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Network Infrastructure Engineering</h3>
@@ -545,7 +543,7 @@
                 </div>
                 
                 <!-- Skill 3: Data Integrity & DB Management (uses sqlm-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/sqlm-portfolio.png', 'Designing and implementing robust SQL database backup and disaster recovery protocols.')" data-aos="zoom-in" data-aos-delay="400">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/sqlm-portfolio.png', 'Designing and implementing robust SQL database backup and disaster recovery protocols.')">
                     <img src="https://thallyace.github.io/sqlm-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Database+Skill';" alt="SQL Database Migration Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Data Integrity & Disaster Recovery</h3>
@@ -554,7 +552,7 @@
                 </div>
 
                 <!-- Skill 4: Advanced Hardware Diagnostics (uses hwrp-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/hwrp-portfolio.png', 'Component-level troubleshooting, BIOS flashing, and strategic component replacement.')" data-aos="zoom-in" data-aos-delay="500">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/hwrp-portfolio.png', 'Component-level troubleshooting, BIOS flashing, and strategic component replacement.')">
                     <img src="https://thallyace.github.io/hwrp-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Hardware+Skill';" alt="Hardware Repair Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Advanced Hardware Diagnostics</h3>
@@ -563,7 +561,7 @@
                 </div>
 
                 <!-- Skill 5: Technical Training & Curriculum (uses teach-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/teach-portfolio.png', 'Developing ICT syllabi and delivering practical, hands-on technical training to diverse groups.')" data-aos="zoom-in" data-aos-delay="600">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/teach-portfolio.png', 'Developing ICT syllabi and delivering practical, hands-on technical training to diverse groups.')">
                     <img src="https://thallyace.github.io/teach-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Training+Skill';" alt="Training Module Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Technical Training & Pedagogy</h3>
@@ -572,7 +570,7 @@
                 </div>
                 
                 <!-- Skill 6: Cyber Security & Compliance (uses audit-portfolio.png) -->
-                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/audit-portfolio.png', 'Proactive monitoring, patch management, and security incident response protocols.')" data-aos="zoom-in" data-aos-delay="700">
+                <div class="md-card overflow-hidden cursor-pointer" onclick="openModal('https://thallyace.github.io/audit-portfolio.png', 'Proactive monitoring, patch management, and security incident response protocols.')">
                     <img src="https://thallyace.github.io/audit-portfolio.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/374151/ffffff?text=Security+Skill';" alt="Security Audit Project" class="w-full h-48 object-cover transition duration-500 hover:scale-110">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold accent-color">Cyber Resilience & Patch Management</h3>
@@ -590,15 +588,15 @@
             <div id="caption" class="text-gray-300 text-center p-4 mt-4"></div>
         </div>
 
-        <!-- Contact Me Page - RE-ENABLED fade-up animation for tab click -->
-        <div id="contact_me" class="page-content hidden space-y-10" data-aos="fade-up" data-aos-duration="600">
-            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color" data-aos="fade-right">Get in Touch</h2>
+        <!-- Contact Me Page -->
+        <div id="contact_me" class="page-content hidden space-y-10">
+            <h2 class="text-4xl font-bold border-b border-gray-700 pb-4 accent-color">Get in Touch</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Contact Card 1: Email -->
-                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center" data-aos="slide-right" data-aos-delay="100">
-                    <i class="fas fa-envelope text-5xl accent-color mb-4" data-aos="flip-up" data-aos-delay="300"></i>
+                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center">
+                    <i class="fas fa-envelope text-5xl accent-color mb-4"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Email Me</h3>
                     <p class="text-gray-400 mb-4">The fastest way to initiate a conversation or discuss a project requirement.</p>
                     <a href="mailto:thallyace@gmail.com" class="accent-bg hover:opacity-90 text-white font-bold py-2 px-6 rounded-full transition duration-300 hover:scale-105">
@@ -607,8 +605,8 @@
                 </div>
 
                 <!-- Contact Card 2: Phone -->
-                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center" data-aos="slide-left" data-aos-delay="200">
-                    <i class="fas fa-phone-alt text-5xl accent-color mb-4" data-aos="flip-up" data-aos-delay="400"></i>
+                <div class="md-card p-8 border-l-4 accent-border" style="border-left-color: #00BCD4; flex flex-col items-center text-center">
+                    <i class="fas fa-phone-alt text-5xl accent-color mb-4"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Call/Text</h3>
                     <p class="text-gray-400 mb-4">For immediate technical inquiries or urgent business discussions.</p>
                     <a href="tel:+254794812015" class="accent-bg hover:opacity-90 text-white font-bold py-2 px-6 rounded-full transition duration-300 hover:scale-105">
@@ -618,7 +616,7 @@
 
             </div>
 
-            <div class="pt-8 text-center text-gray-500" data-aos="fade-up">
+            <div class="pt-8 text-center text-gray-500">
                 <p>I look forward to hearing about how my expertise can contribute to your team's success.</p>
             </div>
         </div>
@@ -626,12 +624,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="header-bg py-4 mt-12 text-center text-gray-500 text-sm" data-aos="fade-up">
+    <footer class="header-bg py-4 mt-12 text-center text-gray-500 text-sm">
         <p>&copy; 2024 Caleb Okonu Maera | ICT Professional Portfolio</p>
     </footer>
 
-    <!-- AOS (Animate On Scroll) JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- AOS (Animate On Scroll) JavaScript - REMOVED -->
 
     <!-- JavaScript for Page Navigation and Modal -->
     <script>
@@ -696,9 +693,7 @@
                 }
             }
             
-            // 4. Re-init AOS to detect newly visible elements. 
-            // The fade-up animation on the page-content containers should now trigger.
-            AOS.refreshHard();
+            // AOS.refreshHard() REMOVED
         }
 
         /**
@@ -729,8 +724,7 @@
                 clickedButton.classList.remove('text-gray-400');
             }
             
-            // Re-init AOS to detect newly visible elements within the tab
-            AOS.refreshHard();
+            // AOS.refreshHard() REMOVED
         }
 
         // --- Lightbox/Modal Functions ---
@@ -754,10 +748,7 @@
 
         // Initialize: Show the Home page and initialize AOS on load
         window.onload = function() {
-            AOS.init({
-                duration: 800, 
-                once: false,   // <-- RESTORED: Animation triggers EVERY time the element scrolls into view
-            });
+            // AOS.init({}) REMOVED
             showPage('home');
         };
 
